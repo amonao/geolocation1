@@ -5,15 +5,48 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <?php include 'iplocation.php'; ?>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
+   <style>
+      #mapid {
+         height: 250px;
+      }
+   </style>
 </head>
 <body>
-   <h2>Gdje je server???</h2>
-   <form action='iplocation.php' method='post'>
-      Domain <input type='text' name='domain'>
-      <input type='submit'>
    
-   </form>
+<div id="mapid"></div>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin="">
+   </script>
+<script>
+   const mymap = L.map('mapid').setView([0, 0], 1);
+      myIcon = L.icon({
+            iconUrl: 'my-icon.png',
+            iconSize: [30, 30],
+            iconAnchor: [0, 0],
+          
+         });
+
+
+   const marker = L.marker([0, 0], { icon: myIcon }).addTo(mymap);
+       
+
+     
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            noWrap: true,
+            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+         
+         }).addTo(mymap);
+
+  ///  var latitude = <?php echo $latitude?> ;
+   /// var longitude = <?php echo $longitude?> ;
+   ///marker.setLatLng(latitude, longitude);
+
+</script>
 
 </body>
 </html>

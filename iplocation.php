@@ -1,12 +1,12 @@
+
+
 <h2>Gdje je server?</h2>
    <form action='iplocation.php' method='post'>
       Domain <input type='text' name='domain'>
       <input type='submit'>
-
-</form>
-
-
-   <?php
+  
+   </form>
+<?php
 
 require 'class.IPInfoDB.php';
 
@@ -40,6 +40,7 @@ if($domain !=''){
 
     // Get city information (Slower)
     $result = $ipinfodb->getCity($ip);
+ 
 
     echo 'Country Code : ' . $result['countryCode'] . '<br>';
     echo 'Country Name : ' . $result['countryName'] . '<br>';
@@ -49,9 +50,19 @@ if($domain !=''){
     echo 'Latitude     : ' . $result['latitude'] . '<br>';
     echo 'Longitude    : ' . $result['longitude'] . '<br>';
     echo 'Time Zone    : ' . $result['timeZone'] . '<br>';
+  
 
-    //echo "<br><strong>Var Dump</strong><br>";
-    //var_dump($result);
-   }
+
+
+ 
+    
+
+    
+;
+}
+   $latitude = $result['latitude'];
+   $longitude = $result['longitude'];
+    include 'index.html'
+  
 ?>
 
